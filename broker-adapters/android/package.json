@@ -1,0 +1,8 @@
+{
+  "name": "broker-adapter-android",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Android (React Native) debug adapter for the broker-rs protocol. Copy into any React Native project.",
+  "type": "module",
+  "main": "src/index.ts"
+}

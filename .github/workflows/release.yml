@@ -1,0 +1,39 @@
+name: Release
+
+on:
+  push:
+    tags: ['v*']
+  workflow_dispatch:
+
+jobs:
+  build-and-release:
+    runs-on: windows-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Rust
+        uses: dtolnay/rust-toolchain@stable
+
+      - name: Build broker-rs (release)
+        run: |
+          cd broker-rs
+          cargo build --release
+
+      - name: Package adapters
+        run: |
+          Compress-Archive -Path broker-adapters/react/* -DestinationPath adapter-react.zip
+          Compress-Archive -Path broker-adapters/desktop/* -DestinationPath adapter-desktop.zip
+          Compress-Archive -Path broker-adapters/android/* -DestinationPath adapter-android.zip
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: |
+            broker-rs/target/release/broker-rs.exe
+            broker-rs/config/broker.example.toml
+            adapter-react.zip
+            adapter-desktop.zip
+            adapter-android.zip
+          generate_release_notes: true

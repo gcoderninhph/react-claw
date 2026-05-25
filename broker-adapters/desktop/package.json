@@ -1,0 +1,8 @@
+{
+  "name": "broker-adapter-desktop",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Desktop (Electron) debug adapter for the broker-rs protocol. Copy into any Electron+React project.",
+  "type": "module",
+  "main": "src/index.ts"
+}
