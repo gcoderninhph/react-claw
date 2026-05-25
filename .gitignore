@@ -1,0 +1,27 @@
+# Node / scraping API (not part of react-claw)
+node_modules/
+package.json
+package-lock.json
+
+# Scraping samples
+detail_sample.html
+dramafren_home.html
+dramafren_series_sample.html
+dramafren_watch_sample.html
+watch_ep1.html
+
+# Server
+server.js
+
+# Old Vietnamese docs
+MAP.md
+map_md/
+base-agent.md
+Map.role.vietnamese.md
+React.role.vietnamese.md
+
+# Rust build artifacts
+broker-rs/target/
+
+# Broker logs
+logs/
